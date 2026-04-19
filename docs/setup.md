@@ -19,18 +19,18 @@ Run the following `gh` commands to create all required labels:
 
 ```bash
 # Semver bump triggers
-gh label create "breaking"          --color "b91c1c" --description "Breaking changes"          # major bump
-gh label create "major-feature"     --color "e11d48" --description "Major new feature"         # major bump
-gh label create "major-enhancement" --color "c2410c" --description "Major enhancement"         # major bump
-gh label create "major-bug"         --color "dc2626" --description "Major bug fix"             # major bump
-gh label create "feature"           --color "1d4ed8" --description "New feature"               # minor bump
+gh label create "breaking"          --color "b60205" --description "Breaking changes"          # major bump
+gh label create "major-feature"     --color "b60205" --description "Major new feature"         # major bump
+gh label create "major-enhancement" --color "b60205" --description "Major enhancement"         # major bump
+gh label create "major-bug"         --color "b60205" --description "Major bug fix"             # major bump
+gh label create "feature"           --color "0075ca" --description "New feature"               # minor bump
 gh label create "enhancement"       --color "a2eeef" --description "New feature or request"    # minor bump
-gh label create "removed"           --color "7f1d1d" --description "Removed features"          # minor bump
-gh label create "deprecated"        --color "78716c" --description "Deprecated"                # minor bump
+gh label create "removed"           --color "e4e669" --description "Removed features"          # minor bump
+gh label create "deprecated"        --color "fbca04" --description "Deprecated"                # minor bump
 gh label create "bug"               --color "d73a4a" --description "Something isn't working"   # patch bump
-gh label create "bugfix"            --color "ef4444" --description "Bug fix"                   # patch bump
-gh label create "fix"               --color "ef4444" --description "Bug fix"                   # patch bump
-gh label create "regression"        --color "f97316" --description "Regression fix"            # patch bump
+gh label create "bugfix"            --color "d73a4a" --description "Bug fix"                   # patch bump
+gh label create "fix"               --color "d73a4a" --description "Bug fix"                   # patch bump
+gh label create "regression"        --color "e99695" --description "Regression fix"            # patch bump
 gh label create "revert"            --color "6b7280" --description "Reverted changes"
 gh label create "reverted"          --color "6b7280" --description "Reverted changes"
 
@@ -38,16 +38,16 @@ gh label create "reverted"          --color "6b7280" --description "Reverted cha
 gh label create "chore"             --color "9ca3af" --description "Maintenance"
 gh label create "cleanup"           --color "9ca3af" --description "Code cleanup"
 gh label create "documentation"     --color "0075ca" --description "Documentation"
-gh label create "dependencies"      --color "14b8a6" --description "Dependency updates"
-gh label create "dependency"        --color "14b8a6" --description "Dependency update"
+gh label create "dependencies"      --color "0366d6" --description "Dependency updates"
+gh label create "dependency"        --color "0366d6" --description "Dependency update"
 gh label create "ci"                --color "f59e0b" --description "CI and build changes"
 gh label create "build"             --color "f59e0b" --description "Build changes"
 gh label create "test"              --color "a855f7" --description "Tests"
 gh label create "tests"             --color "a855f7" --description "Tests"
 
 # Special
-gh label create "no-changelog"      --color "e5e7eb" --description "Exclude from changelog"
-gh label create "skip-changelog"    --color "e5e7eb" --description "Exclude from changelog"
+gh label create "no-changelog"      --color "cfd3d7" --description "Exclude from changelog"
+gh label create "skip-changelog"    --color "cfd3d7" --description "Exclude from changelog"
 gh label create "invalid"           --color "e4e669" --description "This doesn't seem right"
 ```
 

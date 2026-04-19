@@ -51,17 +51,7 @@ gh label create "skip-changelog"    --color "e5e7eb" --description "Exclude from
 gh label create "invalid"           --color "e4e669" --description "This doesn't seem right"
 ```
 
-### 3. Create a Baseline Release
-
-release-drafter needs an existing published release to calculate the next version from:
-
-```bash
-git tag v0.0.0
-git push origin v0.0.0
-gh release create v0.0.0 --title "v0.0.0" --notes "Baseline release" --prerelease
-```
-
-### 4. Configure the Build Workflows
+### 3. Configure the Build Workflows
 
 Replace the placeholder steps in the workflow files with your own build commands:
 
@@ -145,7 +135,7 @@ If the workflow fails, re-run it manually: **Actions → 🚀 Publish → Run wo
 
 ### Draft release shows wrong version
 
-Ensure a published release exists as a baseline (at minimum `v0.0.0`). release-drafter uses the latest published release to calculate `$RESOLVED_VERSION`. A draft release does not count.
+If the version shown is unexpected, check that the latest **published** release tag is a valid semver string (e.g. `v1.2.3`). release-drafter parses the latest published release to calculate `$RESOLVED_VERSION` — a draft release does not count. If no published release exists, release-drafter treats `v0.0.0` as the implicit baseline.
 
 ### release-drafter fails with 403 / permission error
 
@@ -155,7 +145,7 @@ Go to **Settings → Actions → General** and verify:
 
 ### A merged PR does not appear in the changelog
 
-- The PR must have been merged into the default branch **after** the baseline release was published
+- The PR must have been merged into the default branch **after** the latest published release (if any)
 - The PR must have at least one label that is not in `exclude-labels`
 - Labels added **after** the merge are not retroactively picked up — release-drafter reads labels at draft-update time, so adding the label and manually re-running the workflow fixes this
 

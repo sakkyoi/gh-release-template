@@ -50,7 +50,7 @@ The **highest** bump among all merged PRs since the last release wins. For examp
 
 release-drafter looks at the latest published release tag, parses its version number, and increments the appropriate segment. The result is available as the `$RESOLVED_VERSION` variable.
 
-> **Important:** The baseline must be a **published** release. A draft release is not counted. This is why the setup requires creating `v0.0.0` as the initial baseline.
+> **Note:** release-drafter uses the latest **published** release tag as the baseline — a draft release does not count. If no published release exists, `v0.0.0` is used as the implicit baseline, so no manual setup is required.
 
 ### 3. The draft tag is updated
 

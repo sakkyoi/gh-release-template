@@ -1,0 +1,34 @@
+name: '🚀 Publish'
+
+on:
+  release:
+    types:
+      - released
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to upload artifacts to'
+        required: true
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+
+      # Replace the steps below with your own build commands
+      - name: Build
+        run: |
+          echo "Add your build steps here"
+          # Output should be a single zip or binary in ./artifacts/
+
+      - name: Upload artifacts to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.event.release.tag_name || inputs.tag }}"
+          gh release upload "$TAG" ./artifacts/* --clobber

@@ -1,0 +1,32 @@
+name: '🏗️ Build'
+
+on:
+  push:
+    branches: [master, main]
+    paths-ignore:
+      - '**/*.md'
+  pull_request:
+    branches: [master, main]
+    paths-ignore:
+      - '**/*.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Replace the steps below with your own build commands
+      - name: Build
+        run: echo "Add your build steps here"
+
+      - name: Test
+        run: echo "Add your test steps here"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: ./dist/          # Change to your output directory
+          retention-days: 30

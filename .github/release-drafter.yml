@@ -1,0 +1,98 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+version-template: '$MAJOR.$MINOR.$PATCH'
+category-template: '### $TITLE'
+
+version-resolver:
+  major:
+    labels:
+      - breaking
+      - major-feature
+      - major-enhancement
+      - major-bug
+  minor:
+    labels:
+      - feature
+      - enhancement
+      - removed
+      - deprecated
+  patch:
+    labels:
+      - bug
+      - fix
+      - bugfix
+      - regression
+      - chore
+      - cleanup
+      - documentation
+      - dependencies
+      - dependency
+      - ci
+      - build
+      - test
+      - tests
+  default: patch
+
+categories:
+  - title: ':boom: Breaking changes'
+    labels: [breaking]
+  - title: ':fire: Removed'
+    labels: [removed]
+  - title: ':rewind: Reverted Changes'
+    labels: [revert, reverted]
+  - title: ':rocket: Major features and improvements'
+    labels: [major-enhancement, major-feature]
+  - title: ':ambulance: Major bug fixes'
+    labels: [major-bug]
+  - title: ':wastebasket: Deprecated'
+    label: deprecated
+  - title: ':tada: New features and improvements'
+    labels: [enhancement, feature]
+  - title: ':bug: Bug Fixes'
+    labels: [bug, fix, bugfix, regression]
+  - title: ':white_check_mark: Tests'
+    labels: [test, tests]
+  - title: ':gear: Code or Repo Maintenance'
+    labels: [chore, cleanup]
+  - title: ':memo: Documentation updates'
+    labels: [documentation]
+  - title: ':arrow_up: Dependency updates'
+    labels: [dependencies, dependency]
+  - title: ':construction_worker: CI & build changes'
+    labels: [ci, build]
+
+exclude-labels:
+  - no-changelog
+  - skip-changelog
+  - invalid
+
+autolabeler:
+  - label: ci
+    files:
+      - '.github/workflows/*'
+      - '.github/dependabot.yml'
+    branch:
+      - '/ci\/.+/'
+  - label: documentation
+    files:
+      - '*.md'
+    branch:
+      - '/docs?\/.+/'
+  - label: bug
+    branch:
+      - '/fix\/.+/'
+    title:
+      - '/fix/i'
+  - label: chore
+    branch:
+      - '/chore\/.+/'
+    title:
+      - '/chore/i'
+  - label: feature
+    branch:
+      - '/feature\/.+/'
+
+template: |-
+  ## :sparkles: What's New
+
+  $CHANGES

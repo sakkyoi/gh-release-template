@@ -14,7 +14,7 @@ A GitHub repository template for setting up an automated, PR-driven release pipe
 ## How to use this template
 
 1. Click **Use this template** → **Create a new repository**
-2. Follow the setup guide in [`docs/setup.md`](docs/setup.md)
+2. Follow the setup guide in [`docs/setup.md`](docs/setup.md) or the [step-by-step tutorial on HackMD](https://hackmd.io/@sakkyoi/gh-release-workflow) (Mandarin)
 3. Replace the placeholder build steps in `build.yml` and `publish.yml` with your own commands
 
 ## Release workflow at a glance

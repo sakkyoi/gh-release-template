@@ -201,3 +201,4 @@ gh workflow run publish.yml -f tag=vX.Y.Z
 - [`docs/dependabot.md`](dependabot.md) — Setting up Dependabot and integrating it with the release pipeline
 - [`docs/versioning.md`](versioning.md) — Semver basics, how version resolution works, pre-releases, and non-semver alternatives
 - [`docs/release-strategies.md`](release-strategies.md) — Multiple release lines, backporting, and monorepo setups
+- [`docs/alternatives.md`](alternatives.md) — Comparison with semantic-release

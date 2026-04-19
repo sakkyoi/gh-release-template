@@ -11,6 +11,10 @@ A GitHub repository template for setting up an automated, PR-driven release pipe
 | `.github/workflows/publish.yml` | Builds and uploads artifacts when a release is published |
 | `.github/release-drafter.yml` | release-drafter configuration: labels, changelog categories, version resolver |
 
+## Alternatives
+
+If you prefer a fully automated release process driven by commit messages, see [`docs/alternatives.md`](docs/alternatives.md) for a comparison with semantic-release.
+
 ## How to use this template
 
 1. Click **Use this template** → **Create a new repository**
@@ -40,3 +44,4 @@ See [`docs/setup.md`](docs/setup.md) for the full setup and day-to-day workflow 
 | [`docs/label-schemes.md`](docs/label-schemes.md) | Label schemes from different projects and customization guide |
 | [`docs/versioning.md`](docs/versioning.md) | Semver, version resolution, pre-releases, non-semver alternatives |
 | [`docs/release-strategies.md`](docs/release-strategies.md) | Multiple release lines, backporting, monorepo setups |
+| [`docs/alternatives.md`](docs/alternatives.md) | Comparison with semantic-release |

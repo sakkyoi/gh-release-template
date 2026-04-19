@@ -94,6 +94,8 @@ The specific steps depend on your language and toolchain. Refer to the [GitHub A
 
 ## Releasing a New Version
 
+There is no requirement to publish a release after every PR. The draft accumulates merged PRs indefinitely until you choose to publish. This means you can let changes build up across multiple PRs and release them all at once whenever the timing is right.
+
 ### Step 1 — Review the draft release
 
 Go to **Releases** on GitHub. You will see a draft with the accumulated changelog. Check that all entries look correct.

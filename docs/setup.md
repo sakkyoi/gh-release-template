@@ -165,6 +165,7 @@ Go to **Settings → Actions → General** and verify:
 - The PR must have been merged into the default branch **after** the latest published release (if any)
 - The PR must have at least one label that is not in `exclude-labels`
 - Labels added **after** the merge are not retroactively picked up — release-drafter reads labels at draft-update time, so adding the label and manually re-running the workflow fixes this
+- If a PR was just merged and is not yet visible in the draft, this is likely a GitHub API indexing delay — release-drafter ran before the PR was indexed. The next push to `master`/`main` will pick it up automatically, or manually re-run **Actions → 📝 Update Release Draft → Run workflow**
 
 ### Unwanted draft release keeps appearing
 

@@ -115,31 +115,9 @@ autolabeler:
 
 ## Running autolabeler on pull_request events
 
-By default, autolabeler runs as part of the release-drafter workflow on push to the default branch — meaning labels are applied after a PR is merged. To label PRs while they are still open, add a separate workflow:
+By default, autolabeler runs as part of the release-drafter workflow on push to the default branch — meaning labels are applied after a PR is merged. This template includes `.github/workflows/autolabeler.yml`, which runs on `pull_request` events so labels are applied as soon as a PR is opened or updated.
 
-```yaml
-# .github/workflows/autolabeler.yml
-name: '🏷️ Auto Label'
-
-on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-
-permissions:
-  contents: read
-
-jobs:
-  auto-label:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    steps:
-      - uses: release-drafter/release-drafter/autolabeler@v7
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-This reads the same `autolabeler` configuration from `.github/release-drafter.yml` and applies labels as soon as a PR is opened or updated.
+It reads the same `autolabeler` configuration from `.github/release-drafter.yml`.
 
 > Note: PRs from forks require `pull_request_target` instead of `pull_request`. Use with caution — `pull_request_target` runs in the context of the base branch and has access to secrets. **Reference:** [GitHub Docs — Keeping your GitHub Actions and workflows secure: Understanding the risk of script injections](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)
 

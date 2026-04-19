@@ -15,7 +15,12 @@ Go to **Settings → Actions → General**:
 
 ### 2. Create GitHub Labels
 
-Run the following `gh` commands to create all required labels:
+Run the following `gh` commands to create all required labels. Start by clearing any existing labels (including GitHub's defaults):
+
+```bash
+# Remove all existing labels
+gh label list --json name --jq '.[].name' | xargs -I {} gh label delete "{}" --yes
+```
 
 ```bash
 # Semver bump triggers

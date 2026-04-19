@@ -4,6 +4,18 @@ A guide for setting up and maintaining the automated, PR-driven release pipeline
 
 ---
 
+## Setup Checklist
+
+- [ ] [Settings → Actions → General](#1-github-repository-settings): set Workflow permissions to **Read and write** and enable **Allow GitHub Actions to create and approve pull requests**
+- [ ] [Create GitHub Labels](#2-create-github-labels)
+- [ ] [Configure build steps in `.github/workflows/build.yml`](#3-configure-the-build-workflows)
+- [ ] [Configure build steps in `.github/workflows/publish.yml`](#3-configure-the-build-workflows)
+- [ ] _(optional)_ [Create `.github/dependabot.yml`](dependabot.md#setup)
+- [ ] _(optional)_ [Enable **Allow auto-merge** in Settings → General](dependabot.md#auto-merging-dependabot-prs)
+- [ ] _(optional)_ [Create `.github/workflows/dependabot-auto-merge.yml`](dependabot.md#auto-merging-dependabot-prs)
+
+---
+
 ## One-Time Setup
 
 ### 1. GitHub Repository Settings
@@ -61,7 +73,7 @@ gh label create "invalid"           --color "e4e669" --description "This doesn't
 Replace the placeholder steps in the workflow files with your own build commands:
 
 - **`.github/workflows/build.yml`** — CI steps that run on every push and PR
-- **`.github/workflows/publish.yml`** — build steps that run when a release is published; output should land in `./artifacts/`
+- **`.github/workflows/publish.yml`** — build steps that run when a release is published; output should land in `./dist/`
 
 The specific steps depend on your language and toolchain. Refer to the [GitHub Actions documentation](https://docs.github.com/en/actions) and the [GitHub Actions Marketplace](https://github.com/marketplace?type=actions) for available actions (e.g. `actions/setup-node`, `actions/setup-go`, `actions/setup-java`).
 
